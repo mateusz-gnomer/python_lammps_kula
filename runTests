@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PYTHONPATH=${PYTHONPATH}:/home/users/mgrybczuk/testy_linux/python/kula_wody
+python3 ./test/testGeneratora.py
