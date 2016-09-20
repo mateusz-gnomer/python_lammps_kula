@@ -107,12 +107,35 @@ class GeneratorKulWody:
         for k in self.katy:
             self.drukujKat(k)
 
+    def wydrukujNaglowek(self):
+        prNapis = str(self.promien)
+        print("Lammps Description")
+        print("")
+        print(str(self.licznikCzastek * 3) + " atoms")
+        print(str(self.licznikCzastek * 2) + " bonds")
+        print(str(self.licznikCzastek ) + " angles")
+        print("0 dihedrals")
+        print("0 impropers")
+        print("")
+        print("2 atom types")
+        print("1 bond types")
+        print("1 angle types")
+        print("-" + prNapis + " " + prNapis + " xlo xhi")
+        print("-" + prNapis + " " + prNapis + " ylo yhi")
+        print("-" + prNapis + " " + prNapis + " zlo zhi")
+        print("")
+        print("Masses")
+        print("")
+        print("1 15.9994")
+        print("2 1.008")
+        print("")
+        
     def dodajAtomy(self, x, y, z):
         lc = self.licznikCzastek
         offsetNumeru = (lc-1)*3
-        self.atomy.append(str(offsetNumeru+1) + " " + str(lc) + " 1 " + str(x) +  " " +  str(y+0.8164904) + " " + str(z) + " 0.0")
-        self.atomy.append(str(offsetNumeru+2) + " " + str(lc) + " 2 " + str(x+0.4238+0.8476) +  " " +  str(y+1.6229808) + " " + str(z+0.577359) + " 0.0")
-        self.atomy.append(str(offsetNumeru+3) + " " + str(lc) + " 2 " + str(x+0.4238+0.8476) +  " " +  str(y)+ " " + str(z+0.577359) + " 0.0")
+        self.atomy.append(str(offsetNumeru+1) + " " + str(lc) + " 1 -0.8476 " +  str(x+0.8164904) + " " + str(y) + " " + str(z))
+        self.atomy.append(str(offsetNumeru+2) + " " + str(lc) + " 2 0.4238 " + str(x+1.6229808) +  " " + str(y+0.577359) + " " + str(z))
+        self.atomy.append(str(offsetNumeru+3) + " " + str(lc) + " 2 0.4238 " + str(x) +  " " + str(y+0.577359)+ " " + str(z))
         
     def dodajWiazania(self):
         lc = self.licznikCzastek
@@ -146,6 +169,7 @@ if __name__ == '__main__':
         generator = GeneratorKulWody(int(sys.argv[1]))
         generator.generujWspolrzedne()
         generator.wstawCzastki()
+        generator.wydrukujNaglowek()
         generator.wydrukujWynik()
     except Exception as blad:
         print("Nie udało się: " + blad)
