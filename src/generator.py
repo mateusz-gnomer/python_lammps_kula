@@ -18,9 +18,9 @@ class GeneratorKulWody:
     def generujWspolrzedne(self):
         self.ustalPromien()
         promien = self.promien
-        i = (0 - promien)//self.stalaSieci * self.stalaSieci
+        i = (0 - promien)//self.stalaSieci * self.stalaSieci #// to dzielenie bez reszty
         while i <= promien:
-            j = (0 - promien) //self.stalaSieci * self.stalaSieci
+            j = (0 - promien) //self.stalaSieci * self.stalaSieci # inaczej floordivision
             while j <= promien:
                 k = (0 - promien) //self.stalaSieci * self.stalaSieci
                 while k <= promien:
